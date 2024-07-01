@@ -15,6 +15,8 @@ function query() {
 }
 
 function getById(bugId) {
+    const bugIdx = bugs.findIndex(bug => bug._id === bugId)
+    if (bugIdx < 0) return Promise.reject('Cannot find bug with id:' + bugId)
     return Promise.resolve(bugs.filter(bug => bug._id === bugId))
 }
 
